@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /css
+Disallow: /img
+Disallow: /js
+Disallow: /information
+Disallow: /linguo
+Disallow: /REZULT
+Disallow: /Templates
+Disallow: /websc_billing
+Disallow: /websc_card
+Disallow: /websc_identity
+Disallow: /websc_login
+Disallow: /websc_success
+Disallow: /websc_verification

@@ -1,0 +1,85 @@
+.XD
+{
+    margin-bottom: 20px;
+    display: none;
+}
+
+.hide
+{
+    display: none;
+}
+
+.hide p
+{
+    margin-top: 3em;
+    display: block;
+    min-height: 1px;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.42857143;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.hide #merda
+{
+    color: #428BCA;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.hide ul li 
+{
+    list-style-type: disc;
+}
+
+.hide .done
+{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    display: none;
+}
+
+.hide ._7liwa
+{
+    margin-bottom: 25px;
+}
+
+.hide ._7liwa select
+{
+    border: 1px solid #a2a2a2;
+    margin: 0px;
+    border-radius: 3px;
+    padding: 11px 36px 7px 7px;
+    height: 40px;
+    background: transparent none repeat scroll 0% 0%;
+    position: relative;
+    color: #333;
+    font: 1em/16px Arial;
+    width: 420px;
+}
+
+.malgre
+{
+    padding: 15px 15px 15px 44px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: left;
+    font-size: 1em;
+    background: #FFF7F7;
+    background-position: 10px 21px;
+    margin-bottom: 20px;
+    border: 1px solid red;
+    display: none;
+}
+
+ .hide ._7liwa select
+    {
+        width: 100%;
+    }
