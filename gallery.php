@@ -8,6 +8,7 @@ ob_start();
         <!--        <meta charset="utf-8">
                 <title>SGAN</title>
                 <meta name="description" content="">-->
+	    <base href="https://www.sgan.in/">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="SGAN Gallery, Naranpar Gallery, Naranpar Gurukul Gallery, Shree Ghanshyam Academy Gallery, Gallery" />
@@ -68,11 +69,12 @@ ob_start();
 
                         $field = array("*");
                         $data = $dba->getRow("gallary_list", $field, "1 GROUP BY album_id ORDER BY id DESC");
-                       $count = count($data);
+                        
+                        $count = count($data);
                         if ($count >= 1) {
                             for ($i = 0; $i < $count; $i++) {
                                 if ($data[$i][1] == $data1[$i][1]) {
-                                    //echo $data[$i][1] == $data1[$i][1];
+                                   
                                     echo '<div class = " setsize gallery' . $data1[$i][0] . '" data-ref = "mixitup-target">';
                                     echo '<a href = "gallery_detail.php?id=' . $data[$i][1] . '">';
                                     echo '<div class = "card text-center">';
@@ -84,7 +86,7 @@ ob_start();
                                     echo '</a>';
                                     echo '</div>';
                                 } else {
-                                    echo '<div class = " setsize all" data-ref = "mixitup-target">';
+                                    echo '<div class = "setsize all" data-ref = "mixitup-target">';
                                     echo '<a href = "gallery_detail.php?id=' . $data[$i][1] . '">';
                                     echo '<div class = "card text-center">';
                                     echo '<img class = "card-img-top" src = "admin/Images/Gallary/' . $data[$i][2] . '" alt = "team-member" >';

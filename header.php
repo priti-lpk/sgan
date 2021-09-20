@@ -57,7 +57,7 @@
                             <ul class="list-inline  mb-30">
                                 <li class="list-inline-item col-md-3 t-10 hide">
                                     <div id="clockbox" class="text-red"></div>
-                              
+
                                 <li class="list-inline-item col-md-3 t-10 text-red">
                                     || सा विद्या या विमुक्तये ||
 
@@ -99,11 +99,11 @@
 
                                 <li class="list-inline-item hide left shadow1">
                                     <a class="" href="index.php">
-                                        <img src="images/logo.png" alt="logo">
+                                        <img src="images/sgan-logo.png" alt="logo" height="150" width="150">
                                     </a>
 
                                 </li>
-                                <li class="list-inline-item text-center ml-20"><img src="images/SGAN.png"/ width="250px" height="auto" class="mb-10 mt-10"><h3>SHREE SWAMINARAYAN GURUKUL - NARANPAR</h3></li>
+                                <li class="list-inline-item text-center ml-20"><img src="images/SGAN.png" width="250px" height="auto" class="mb-10 mt-10"><h3>SHREE SWAMINARAYAN GURUKUL - NARANPAR</h3></li>
                                 <li class="list-inline-item right hide shadow1">
                                     <img src="images/sgan-hariswrup-swami.png" alt="logo">
 
@@ -115,7 +115,7 @@
             </div>
             <!-- nav bar -->
             <div class="navigation mt-0" id="navbar1">
-                <div class="container">
+                <div class="container-alt text-center justify-content-center d-flex">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand none" href="index.php">
                             <img src="images/logo.png" alt="logo">
@@ -141,16 +141,22 @@
                                         <a class="dropdown-item" href="about.php#abt">About School</a>
                                         <a class="dropdown-item" href="about.php#mission">Mission & Vision</a>
                                         <a class="dropdown-item" href="about.php#saint">Message from Saint</a>
-                                        <a class="dropdown-item" href="about.php#director">Message from Director</a>
+                                        <!--<a class="dropdown-item" href="about.php#director">Message from Director</a>-->
                                         <a class="dropdown-item" href="about.php#principal">Message from Principal</a>
                                     </div>
                                 </li> 
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="admission.php" role="button">
-                                        Admission
+                                <li class="nav-item dropdown frmfield">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        ADMISSION
                                     </a>
-                                </li>    
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="admission.php">About Admission</a>
+                                        <a class="dropdown-item" href="online-admission.php">Online Admission</a>
+                                        <a class="dropdown-item" href="https://easypay.axisbank.co.in/easyPay/makePayment?mid=NTM4MDY%3D" target="_blank">Online Fee Payment</a>
+                                    </div>
+                                </li>
+
 
                                 <li class="nav-item dropdown frmfield">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -213,14 +219,52 @@
                                         <a class="dropdown-item" href="video_gallery.php">Video Gallery</a>
                                     </div>
                                 </li>               
-
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="facilities.php" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        Mandatory Public Disclosure
+                                    </a>
+                                    <div class="dropdown-menu" >
+                                        <a class="dropdown-item" href="disclosure/Academic_Calendar_2021-22.pdf" target="_blank">Academic Calender</a>
+                                        <a class="dropdown-item" href="disclosure/Affiliation-Extensio-Letter.pdf" target="_blank">Affliction/Extension Letter</a>
+                                        <a class="dropdown-item" href="disclosure/Building-Safety-Certificate.pdf" target="_blank">Building Safety Certificate</a>
+                                        <a class="dropdown-item" href="disclosure/DEO-Certificate.pdf" target="_blank">DEO Certificate</a>
+                                        <a class="dropdown-item" href="disclosure/School-Fee-Structure.pdf" target="_blank">Fee Structure</a>
+                                        <a class="dropdown-item" href="disclosure/Fire-Safety-Certificate.pdf" target="_blank">Fire Safety Certificate </a>
+                                        <a class="dropdown-item" href="disclosure/Health-&-Sanitatoin-Condition-Certifacate.pdf" target="_blank">Health and Sanitation </a>
+                                        <a class="dropdown-item" href="disclosure/Past-Three-year-Result-of-Class-10th-&-12th.pdf" target="_blank">Last Three Year Board Result</a>
+                                        <a class="dropdown-item" href="disclosure/No-Objection-Certificate.pdf" target="_blank">No Objection Certificate</a>
+                                        <a class="dropdown-item" href="disclosure/Parents-Teacher-Association.pdf" target="_blank">Parents Teacher Association</a>
+                                        <a class="dropdown-item" href="disclosure/Recognition-Certificate.pdf" target="_blank">Recognization Certificate under RTE</a>
+                                        <a class="dropdown-item" href="disclosure/General-Information.pdf" target="_blank">School General Information</a>
+                                        <a class="dropdown-item" href="disclosure/School-Infrastructure.pdf" target="_blank">School Infrastructure</a>
+                                        <a class="dropdown-item" href="disclosure/School-Management-Committee.pdf" target="_blank">School Management Committee</a>
+                                        <a class="dropdown-item" href="disclosure/Teaching-Staff-Information.pdf" target="_blank">Teaching Staff Information</a>
+                                        <a class="dropdown-item" href="disclosure/Trust-Certificate.pdf" target="_blank">Trust Certificate</a>
+                                        <a class="dropdown-item" href="disclosure/Water-Safety-Certificate.pdf" target="_blank">Water Certificate</a>
+                                    </div>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.php">Contact Us</a>
                                 </li>
+                                <!--                                    1.School Genral Information
+                                2. Affliction/Extension Letter
+                                3. Trust Certificate 
+                                4.No Objection Certificate 
+                                5.Recognization Certificate under RTE
+                                6.Building Safety Certificate 
+                                7.Fire Safety Certificate 
+                                8. DEO Certificate 
+                                9.Water Certificate 
+                                10.Health and Sanitation 
+                                11.Fee Structure 
+                                12. Academic Calender 
+                                13.School Management Comeetiee 
+                                14. Parents Teacher Association
+                                15.Last Three Year Board Result
+                                16.Teaching Staff Information
+                                17.School Infrastructure-->
 
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link btn btn-primary btn-sm" href="#">get a quote</a>
-                                </li> -->
                             </ul>
                         </div>
                     </nav>

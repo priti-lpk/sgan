@@ -180,14 +180,24 @@ body {
     font-size: 15px;
 
 }
+.table-admission td input[type="text"]{
+    width: 100%;
+}
+.sub-heading-print{
+    font-size: 12px;
+}
+.heading-print{
+    font-size: 14px;
+    font-weight: bold;
+}
 .btn-header{
     background-color: #0062cc !important;
 }
 .square{
-    border: 1px solid #bdbdbd;
-    height:100px;
-    width: 80px;
-    cursor: pointer;
+
+    height:140px;
+    width: 120px;
+    cursor: pointer !important;
 }
 .online-form ul {
     list-style-type: none;
@@ -209,6 +219,9 @@ body {
     background: transparent;
     width: auto;
     border-bottom: 1px dotted gray;
+}
+.online-form input[type="date"] {
+    width: 40% !important;
 }
 
 .online-form input[type="checkbox"] {
@@ -296,9 +309,9 @@ h6, .h6 {
     content:'';
     -webkit-appearance: none;
     background-color: transparent;
-    border: 3px solid #0079bf;
+    border: 3px solid #9f9f9f;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 10px;
+    padding: 9px;
     display: inline-block;
     position: relative;
     vertical-align: middle;
@@ -320,7 +333,7 @@ h6, .h6 {
 }
 
 .square{
-    border: 1px solid #bdbdbd;
+    /* border: 1px solid #bdbdbd; */
     height:100px;
     width: 80px;
 }
@@ -2832,7 +2845,35 @@ ul.tag-list li a:hover {
         margin: 0 5px;
     }
 }
+@media only screen and (max-device-width: 480px) {
+    .css3-shadow:after
+    {
+        content:"";
+        position:absolute;
+        z-index:-1;
+        top:100%;
+        bottom:0;
+        width:120%;
+        height:0px !important;
+        left:-10%;
+        right:-10%;
+        background:-webkit-radial-gradient(50% -3%, ellipse cover, rgba(00, 00, 00, 0.3), rgba(97, 97, 97, 0.0) 40%);
+        background:      radial-gradient(ellipse at 50% -3%, rgba(00, 00, 00, 0.3), rgba(97, 97, 97, 0.0) 40%);
 
+    }
+    .square{
+        /*border: 1px solid #bdbdbd;*/
+        height:100px;
+        width: auto !important;
+    }
+    .table-admission td,
+    .table-admission th {
+        padding: .3rem
+    }
+    .table-admission td input[type="text"]{
+        width: auto;
+    }
+}
 .syotimer-cell__value {
     font-size: 60px;
     font-weight: 600;

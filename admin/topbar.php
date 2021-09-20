@@ -14,10 +14,10 @@
         <div class="topbar-left">
             <a href="index.php" class="logo">
                 <span>
-                    <img src="Images/logo.png" alt="" height="64">
+                    <img src="Images/sgan-logo.png" alt="" height="64">
                 </span>
                 <i>
-                    <img src="Images/logo.png" alt="" height="62">
+                    <img src="Images/sgan-logo.png" alt="" height="62">
                 </i>
             </a>
         </div>

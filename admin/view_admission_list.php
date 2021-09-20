@@ -33,6 +33,92 @@
                 margin: 0;
             }
 
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #myImg:hover {opacity: 0.7;}
+
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                /*position: fixed;  Stay in place */
+                /*z-index: 1;  Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+
+            /* Add Animation */
+            .modal-content, #caption {  
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @-webkit-keyframes zoom {
+                from {-webkit-transform:scale(0)} 
+                to {-webkit-transform:scale(1)}
+            }
+
+            @keyframes zoom {
+                from {transform:scale(0)} 
+                to {transform:scale(1)}
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px){
+                .modal-content {
+                    width: 100%;
+                }
+            }
+
         </style>
     </head>
 
@@ -84,6 +170,11 @@
                                                         <th>student_gender</th>
                                                         <th>category</th>
                                                         <th>student_photo</th>
+                                                        <th>birth_certificate</th>
+                                                        <th>caste_certificate</th>
+                                                        <th>report_cardboard</th>
+                                                        <th>transfer_certificate</th>   
+                                                        <th>tenth_marksheet</th>
                                                         <th>view</th>
                                                     </tr>
                                                 </thead>
@@ -104,6 +195,11 @@
                                                             echo "<td>" . $subData[5] . "</td>";
                                                             echo "<td>" . $subData[10] . "</td>";
                                                             echo "<td><img src=../Images/Admission_stu_photo/" . $subData[4] . "  alt='image' class='img-responsive' height=100 width=100></td>";
+                                                            echo "<td><a id=" . $subData[14] . " onclick='openmodel(this.id)'>" . $subData[14] . "</a></td>";
+                                                            echo "<td><a id=" . $subData[15] . " onclick='openmodel(this.id)'>" . $subData[15] . "</a></td>";
+                                                            echo "<td><a id=" . $subData[16] . " onclick='openmodel(this.id)'>" . $subData[16] . "</a></td>";
+                                                            echo "<td><a id=" . $subData[17] . " onclick='openmodel(this.id)'>" . $subData[17] . "</a></td>";
+                                                            echo "<td><a id=" . $subData[18] . " onclick='openmodel(this.id)'>" . $subData[18] . "</a></td>";
                                                             echo "<td><a href='View_admission_print.php?id=$subData[0]'><button class='btn btn-primary'>View</button></a></td>";
                                                             echo '</tr>';
                                                         }
@@ -111,7 +207,12 @@
                                                     ?> 
                                                 </tbody>
                                             </table>
-
+                                            <!-- The Modal -->
+                                            <div id="myModal" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img class="modal-content" id="img01">
+                                                <div id="caption"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div> 
@@ -159,7 +260,7 @@
         <script src="plugins/select2/js/select2.min.js"></script>
         <script src="plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
         <script src="plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js"></script>
-        <script src="plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>-->
+        <script src="plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
         <script src="plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="plugins/datatables/dataTables.bootstrap4.min.js"></script>
         <!-- Buttons examples -->
@@ -183,28 +284,34 @@
         <link href="assets/dist-1/main.css" rel="stylesheet">
         <link href="assets/dist/summernote.css" rel="stylesheet">
         <script src="assets/dist-1/summernote.js"></script>
-        <!--<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.7.0/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.7.0/summernote.js"></script>-->
-        <script type="text/javascript">
 
-            $('.summernote').summernote({
-                toolbar: [
-                    ['style', ['style']],
-                    ['fontsize', ['fontsize']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontname', ['fontname']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],
-                    ['insert', ['picture', 'hr']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'image', 'doc', 'video']],
-                ],
-                height: 400
-            });
+        <script>
+            function openmodel(id) {
+
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = '../images/Admission_doc/' + id;
+
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+
+                modal.style.display = "block";
+                modalImg.src = img
+
+                captionText.innerHTML = id;
+
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+            }
         </script>
-
-
 
     </body>
 

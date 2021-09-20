@@ -61,16 +61,16 @@
                         </div>
                         <div class="col-lg-1 col-md-1"></div>
                         <div class="col-lg-5 col-md-5">
-                            <h4 class="section-title-sm text-center text-white section-title-border">Latest News</h4><br/>
+                            <h4 class="section-title-sm text-center text-white section-title-border">Events</h4><br/>
                             <ul>
                                 <?php
                                 include_once 'admin/shreeLib/DBAdapter.php';
                                 $dba = new DBAdapter();
                                 $field = array("*");
-                                $data = $dba->getRow("news_event", $field, "ne_type='News' LIMIT 3");
+                                $todaydate = date("Y-m-d", strtotime(date("d-m-Y")));
+                                $data = $dba->getRow("news_event", $field, "ne_type='Events' and ne_date >=('" . $todaydate . "')  order by id desc limit 3");
                                 $count = count($data);
-                                $date = $data[0][2];
-                                $dates = date("d M, Y", strtotime($date));
+                                $i = 1;
                                 if ($count >= 1) {
                                     foreach ($data as $subData) {
                                         echo '<li class = "d-flex Bborder">';
@@ -78,7 +78,7 @@
                                         echo '<img src = "admin/Images/News-Evants/' . $subData[4] . '" class = "img-responsive1" height = "60px" width = "60px" />';
                                         echo '</div>';
                                         echo '<div class = "px-2 pt-2">';
-                                        $details=$subData[1];
+                                        $details = $subData[1];
                                         $out = strlen($details) > 20 ? substr($details, 0, 30) . "..." : $details;
                                         echo '<a href = "news-event.php" class = "text-white font-primary text-white">' . $out . '</a>';
                                         $date = $subData[2];
@@ -87,12 +87,23 @@
                                         echo '</div>';
                                         echo '</li>';
                                     }
+                                } else {
+                                    echo '<li class = "d-flex Bborder">';
+                                    echo '<div class = "px-4 text-center pt-2">';
+                                    echo '<img src = "admin/Images/News-Evants/' . $subData[4] . '" class = "img-responsive1" height = "60px" width = "60px" />';
+                                    echo '</div>';
+                                    echo '<div class = "px-2 pt-2">';
+
+                                    echo '<a href = "#" class = "text-white font-primary text-white">No Event</a>';
+
+                                    echo '</div>';
+                                    echo '</li>';
                                 }
                                 ?>
-                              
+
                             </ul>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>

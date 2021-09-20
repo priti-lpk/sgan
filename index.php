@@ -94,24 +94,27 @@ ob_start();
                     <div class="col-lg-4 order-1 order-lg-2 mb-md-50 col-12">
                         <center><a href="liveVideo.php" target="_blank"><button id="button" class="btn btn-primary mt-10 mb-40"><i class="ti-video-clapper"></i>&nbsp; &nbsp;Live Video</button></a></center>
 
-                        <h3 class="section-title-sm text-center section-title-border mt-10">Events</h3>
-                        <ul class="bg-white border rounded pl-0">
+                        <h5 class="section-title-sm text-center section-title-border mt-10 mb-3">Latest News</h5>
+                        <ul class="bg-white border rounded pl-0 mb-4">
                             <?php
                             include_once 'admin/shreeLib/DBAdapter.php';
                             $dba = new DBAdapter();
                             $field = array("*");
-                            $todaydate = date("Y-m-d", strtotime(date("d-m-Y")));
-                            $data = $dba->getRow("news_event", $field, "ne_type='Events' and ne_date >=('" . $todaydate . "')  order by id desc limit 3");
+                            $data = $dba->getRow("news_event", $field, "ne_type='News' LIMIT 3");
                             $count = count($data);
-                            $i = 1;
+                            $date = $data[0][2];
+                            $dates = date("d M, Y", strtotime($date));
                             if ($count >= 1) {
                                 foreach ($data as $subData) {
+
                                     echo '<li class = "d-flex border-bottom">';
                                     echo '<div class = "py-3 px-4 border-right text-center">';
                                     echo '<img src =admin/Images/News-Evants/' . $subData[4] . ' class = "img-responsive" height = "50px" width = "50px" />';
                                     echo '</div>';
                                     echo '<div class = "p-3">';
-                                    echo '<a href = "news-event.php" class = "h4 font-primary text-dark">' . $subData[1] . '</a>';
+                                    $details = $subData[1];
+                                    $out = strlen($details) > 20 ? substr($details, 0, 70) . "..." : $details;
+                                    echo '<a href = "news-event.php" class = "h6 font-primary text-dark">' . $out . '</a>';
                                     $date = $subData[2];
                                     $dates = date("d M, Y", strtotime($date));
                                     echo '<p>' . $dates . '</p>';
@@ -124,7 +127,7 @@ ob_start();
                                 echo '<img src =images/logo.png class = "img-responsive" height = "50px" width = "50px" />';
                                 echo '</div>';
                                 echo '<div class = "p-3 mt-12">';
-                                echo '<a href = "news-event.php" class = "h4 font-primary text-dark">No Events</a>';
+                                echo '<a href = "news-event.php" class = "h4 font-primary text-dark">No Latest News</a>';
                                 echo '</div>';
                                 echo '</li>';
                             }
@@ -221,7 +224,7 @@ ob_start();
                     <!-- service item -->
 
                     <!-- service item -->
-                    <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                    <div class="col-lg-6 col-sm-6 mb-5 mb-lg-0">
                         <div class="card text-center">
                             <h4 class="card-title pt-3">Message from Saints</h4>
                             <div class="card-img-wrapper">
@@ -236,24 +239,24 @@ ob_start();
                     </div>
 
                     <!-- service item -->
-                    <div class="col-lg-4 col-sm-6 mb-20">
-                        <div class="card text-center">
-                            <h4 class="card-title pt-3">Director's Desk</h4>
-                            <div class="card-img-wrapper">
-                                <img class="card-img-top rounded-0" src="images/sgan-about2 .jpg" alt="service-image" height="125px" width="auto">
-                            </div>
-                            <div class="card-body p-0">
-                                <i class="square-icon translateY-33 rounded ti-comment-alt"></i>
-                                <p class="card-text mx-2 mb-0">Shree Ghanshyan Academy-Naranpar own and managed by Shree Swaminarayan Gurukul-Naranpar under the guidance of shree Swaminarayan mandir-Bhuj, is one...</p>
-                                <a href="about.php#director" class="btn btn-secondary translateY-25">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
+                    <!--                    <div class="col-lg-4 col-sm-6 mb-20">
+                                            <div class="card text-center">
+                                                <h4 class="card-title pt-3">Director's Desk</h4>
+                                                <div class="card-img-wrapper">
+                                                    <img class="card-img-top rounded-0" src="images/sgan-about2 .jpg" alt="service-image" height="125px" width="auto">
+                                                </div>
+                                                <div class="card-body p-0">
+                                                    <i class="square-icon translateY-33 rounded ti-comment-alt"></i>
+                                                    <p class="card-text mx-2 mb-0">Shree Ghanshyan Academy-Naranpar own and managed by Shree Swaminarayan Gurukul-Naranpar under the guidance of shree Swaminarayan mandir-Bhuj, is one...</p>
+                                                    <a href="about.php#director" class="btn btn-secondary translateY-25">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                    <div class="col-lg-6 col-sm-6">
                         <div class="card text-center">
                             <h4 class="card-title pt-3">Principal's Pen</h4>
                             <div class="card-img-wrapper">
-                                <img class="card-img-top rounded-0" src="images/sgan-about3.jpg" alt="service-image" height="125px" width="auto">
+                                <img class="card-img-top rounded-0" src="images/sgan-about3.jpg" alt="service-image"  width="auto">
                             </div>
                             <div class="card-body p-0">
                                 <i class="square-icon translateY-33 rounded ti-comment-alt"></i>
@@ -266,37 +269,37 @@ ob_start();
             </div>
         </section>
 
-<!-- <section class="about section-sm overlay" style="background-image: url(images/background/about-bg.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 ml-auto">
-                <div class="rounded p-sm-5 px-3 py-5 bg-secondary">
-                    <h3 class="section-title section-title-border-half text-white">Who We Are?</h3>
-                    <p class="text-white mb-40">Excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div>
-                        <ul class="d-inline-block pl-0">
-                            <li class="font-secondary mb-10 text-white float-sm-left mr-sm-5">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services</li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance</li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions</li>
-                        </ul>
-                        <ul class="d-inline-block pl-0">
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services</li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance</li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions</li>
-                        </ul>
+    <!-- <section class="about section-sm overlay" style="background-image: url(images/background/about-bg.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 ml-auto">
+                    <div class="rounded p-sm-5 px-3 py-5 bg-secondary">
+                        <h3 class="section-title section-title-border-half text-white">Who We Are?</h3>
+                        <p class="text-white mb-40">Excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div>
+                            <ul class="d-inline-block pl-0">
+                                <li class="font-secondary mb-10 text-white float-sm-left mr-sm-5">
+                                    <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services</li>
+                                <li class="font-secondary mb-10 text-white">
+                                    <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance</li>
+                                <li class="font-secondary mb-10 text-white">
+                                    <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions</li>
+                            </ul>
+                            <ul class="d-inline-block pl-0">
+                                <li class="font-secondary mb-10 text-white">
+                                    <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services</li>
+                                <li class="font-secondary mb-10 text-white">
+                                    <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance</li>
+                                <li class="font-secondary mb-10 text-white">
+                                    <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-4">Explore More</a>
                     </div>
-                    <a href="#" class="btn btn-primary mt-4">Explore More</a>
                 </div>
             </div>
         </div>
-    </div>
-</section> -->
+    </section> -->
 
 
 
@@ -304,8 +307,8 @@ ob_start();
 
         <!-- footer -->
 
-<?php include_once './footer.php';
-?>
+        <?php include_once './footer.php';
+        ?>
 
     </body>
 

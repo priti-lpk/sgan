@@ -92,7 +92,7 @@ if (isset($_GET['type']) && isset($_GET['id'])) {
                                                     <label for="example-text-input" class="col-sm-2 col-form-label">Select Album</label>
                                                     <div class="col-sm-4" id="albm_list">
                                                         <select class="form-control select2" name="album_id" id="album_list" required="">
-                                                            <option>Select Album</option>
+                                                            <option value="0">Select Album</option>
                                                             <?php
                                                             $dba = new DBAdapter();
                                                             $data = $dba->getRow("album_list", array("id", "album_name"), "1 order by id desc");

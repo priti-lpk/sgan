@@ -165,7 +165,7 @@ if (isset($_GET['type']) && isset($_GET['id'])) {
                                                     include_once 'shreeLib/DBAdapter.php';
                                                     $dba = new DBAdapter();
                                                     $field = array("*");
-                                                    $data = $dba->getRow("news_event", $field, "1");
+                                                    $data = $dba->getRow("news_event", $field, "ne_date ORDER BY ne_date DESC");
                                                     $count = count($data);
                                                     $i = 1;
                                                     if ($count >= 1) {
